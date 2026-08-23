@@ -107,6 +107,7 @@
   "bugs": {
     "url": "https://github.com/rdlabo-dev/eslint-plugin-rules/issues"
   },
+  "homepage": "https://docs.rdlabo.dev/projects/eslint-plugin-rules",
   "dependencies": {
     "ts-api-utils": "2.1.0"
   }
