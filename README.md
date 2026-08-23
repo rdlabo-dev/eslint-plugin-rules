@@ -54,6 +54,10 @@ Enjoying this project? Your support helps keep it alive and growing. Sponsoring 
 
 [Become a Sponsor](https://github.com/sponsors/rdlabo)
 
+## Maintainers
+
+- [rdlabo](https://rdlabo.dev/)
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
