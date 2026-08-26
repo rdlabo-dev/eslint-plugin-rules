@@ -29,3 +29,7 @@ Each rule page in this documentation contains options and correct/incorrect exam
 ## Typed rules
 
 Enable `parserOptions.projectService` for rules that inspect TypeScript types. Without typed linting, `restrict-try-block` still performs syntax-based checks but skips type-dependent Promise and RxJS detection.
+
+## Ionic validation
+
+- [`require-ion-error-text`](./rules/require-ion-error-text.md) requires validation controls to provide Ionic error text.

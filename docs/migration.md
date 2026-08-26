@@ -1,5 +1,22 @@
 # Migration guide
 
+## 22.0 to 22.1
+
+Version 22.1 enables `require-ion-error-text` in the recommended preset. By default, the rule checks the six Ionic controls that support `errorText` only when they bind Angular Signal Forms with `[formField]`. A non-empty static `errorText` or a property-bound `[errorText]` satisfies the rule.
+
+Applications using `KitIonicFormField` from `@rdlabo/ionic-angular-kit/forms` may opt in to adapter-aware linting after every relevant standalone component imports both Angular's `FormField` and the kit adapter:
+
+```js
+{
+  files: ['**/*.html'],
+  rules: {
+    '@rdlabo/rules/require-ion-error-text': ['error', { formFieldProvidesErrorText: true }],
+  },
+}
+```
+
+Set `checkAll: true` only when the application requires error text on supported controls that do not bind `[formField]`; filters and settings controls are otherwise intentionally outside the default scope. `ignoreReadonly: true` applies only with `checkAll` and only to literal `readonly` attributes on `ion-input` and `ion-textarea`. Dynamic `[readonly]` bindings remain checked.
+
 ## 21.x to 22.x
 
 Version 22 targets Angular 21 and 22 with Ionic Framework 9. Ionic 8 applications must remain on version 21 of this plugin.
