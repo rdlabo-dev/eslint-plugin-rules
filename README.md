@@ -36,13 +36,13 @@ For Ionic templates, the preset also requires `ion-item` elements inside `ion-li
 
 ## Next step
 
-Continue to [Configuration](./docs/configuration.md) to enable the recommended preset or individual rules.
+Continue to [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration) to enable the recommended preset or individual rules.
 
 ## Documentation
 
-- [Configuration](./docs/configuration.md)
-- [Migration guide](./docs/migration.md)
-- [Rules](./docs/rules.md)
+- [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration)
+- [Migration guide](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration)
+- [Rules](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules)
 
 <!-- rdlabo-docs-omit -->
 
