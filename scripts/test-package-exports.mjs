@@ -12,9 +12,18 @@ try {
     return Reflect.apply(originalLoad, this, [request, parent, isMain]);
   };
   const typescript = require('@rdlabo/eslint-plugin-rules/typescript');
-  const expectedRules = ['deny-soft-private-modifier', 'restrict-try-block'];
+  const expectedRules = [
+    'deny-soft-private-modifier',
+    'initialize-timezone-at-module-scope',
+    'no-implicit-timezone',
+    'restrict-try-block',
+  ];
   if (JSON.stringify(Object.keys(typescript.rules ?? {}).sort()) !== JSON.stringify(expectedRules)) {
     throw new Error('TypeScript entry point does not expose every framework-independent rule');
+  }
+  const expectedConfigs = ['workers-timezone/recommended', 'workers/recommended'];
+  if (JSON.stringify(Object.keys(typescript.configs ?? {}).sort()) !== JSON.stringify(expectedConfigs)) {
+    throw new Error('TypeScript entry point does not expose the Workers presets');
   }
 } finally {
   Module._load = originalLoad;

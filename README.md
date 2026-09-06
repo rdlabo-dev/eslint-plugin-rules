@@ -12,7 +12,7 @@ Install the plugin as a development dependency:
 npm install --save-dev @rdlabo/eslint-plugin-rules
 ```
 
-The package root provides Angular and Ionic rules. Install `@angular-eslint/template-parser`, `@ionic/angular`, and `@ionic/core` when you enable those rules. Framework-independent TypeScript projects can use the `/typescript` entry point without loading Angular or Ionic.
+The package root provides Angular and Ionic rules. Install `@angular-eslint/template-parser`, `@ionic/angular`, and `@ionic/core` when you enable those rules. Framework-independent TypeScript projects can use the `/typescript` entry point without loading Angular or Ionic. Cloudflare Workers presets cover explicit error boundaries and timezone-safe Date usage.
 
 ## Requirements
 
@@ -29,6 +29,7 @@ The package root provides Angular and Ionic rules. Install `@angular-eslint/temp
 
 - Use `@rdlabo/eslint-plugin-rules` for Angular and Ionic applications.
 - Use `@rdlabo/eslint-plugin-rules/typescript` for backend and other framework-independent TypeScript projects.
+- Add `workers/recommended` for general Workers policy and `workers-timezone/recommended` for the `@rdlabo/workers-timezone` companion policy.
 
 The recommended preset is designed for ESLint Flat Config. Add it at the top level so its TypeScript and HTML file selectors remain intact.
 

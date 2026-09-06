@@ -1,4 +1,4 @@
-The package exposes 19 rules. Rules marked “recommended” are enabled by `rdlabo.configs.recommended`; the remaining rules are opt-in.
+The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
 
 | Rule                                                                                      | Purpose                                                                            | Fix | Preset |
 | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | :-: | :----: |
@@ -8,14 +8,17 @@ The package exposes 19 rules. Rules marked “recommended” are enabled by `rdl
 | [`deny-overlay-create`](./rules/deny-overlay-create.md)                                   | Disallow direct `.create()` calls on modal and popover controllers.                | No  |  Yes   |
 | [`deny-soft-private-modifier`](./rules/deny-soft-private-modifier.md)                     | Replace TypeScript `private` with hard-private `#` fields.                         | Yes |  Yes   |
 | [`implements-ionic-lifecycle`](./rules/implements-ionic-lifecycle.md)                     | Require the matching interface for Angular and Ionic lifecycle methods.            | Yes |  Yes   |
+| [`initialize-timezone-at-module-scope`](./rules/initialize-timezone-at-module-scope.md)   | Keep workers-timezone initialization at one clear module-level site.               | No  |   TZ   |
 | [`ionic-attr-type-check`](./rules/ionic-attr-type-check.md)                               | Require property binding for non-string Ionic attributes.                          | Yes |  Yes   |
 | [`no-component-method-except-lifecycle`](./rules/no-component-method-except-lifecycle.md) | Keep arbitrary methods out of Angular components.                                  | No  |  Yes   |
 | [`no-component-writable-signal`](./rules/no-component-writable-signal.md)                 | Keep writable component state in a ViewModel, with a Signal Forms model exception. | No  |   No   |
+| [`no-implicit-timezone`](./rules/no-implicit-timezone.md)                                 | Prevent implicit host-timezone behavior across Date and Intl APIs.                 | No  |   TZ   |
 | [`no-reactive-forms`](./rules/no-reactive-forms.md)                                       | Disallow Reactive Forms in favor of Angular Signal Forms.                          | No  |   No   |
 | [`no-template-driven-forms`](./rules/no-template-driven-forms.md)                         | Disallow template-driven forms except configured interoperability elements.        | No  |   No   |
 | [`prefer-disable-handler`](./rules/prefer-disable-handler.md)                             | Wrap configured event handlers to prevent duplicate async actions.                 | No  |  Yes   |
 | [`prefer-ionic-standalone`](./rules/prefer-ionic-standalone.md)                           | Prefer Ionic 9 standalone imports and disallow `IonicModule`.                      | Yes |  Yes   |
 | [`prefer-modal-launcher`](./rules/prefer-modal-launcher.md)                               | Restrict `presentModal` calls to `launch*` functions.                              | No  |  Yes   |
+| [`require-ion-error-text`](./rules/require-ion-error-text.md)                             | Require Ionic error text on validation controls.                                   | No  |  Yes   |
 | [`require-ion-item-group`](./rules/require-ion-item-group.md)                             | Require grouped Ionic list items for iOS 26 and Material Design 3.                 | Yes |  Yes   |
 | [`require-viewmodel`](./rules/require-viewmodel.md)                                       | Enforce component ownership and the `ViewModelStore` boundary.                     | No  |  Yes   |
 | [`restrict-try-block`](./rules/restrict-try-block.md)                                     | Keep `try` blocks small and exclude Promise, RxJS, and Signal contexts by policy.  | No  |  Yes   |
@@ -29,7 +32,3 @@ Each rule page in this documentation contains options and correct/incorrect exam
 ## Typed rules
 
 Enable `parserOptions.projectService` for rules that inspect TypeScript types. Without typed linting, `restrict-try-block` still performs syntax-based checks but skips type-dependent Promise and RxJS detection.
-
-## Ionic validation
-
-- [`require-ion-error-text`](./rules/require-ion-error-text.md) requires validation controls to provide Ionic error text.

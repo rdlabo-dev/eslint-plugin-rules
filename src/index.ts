@@ -7,9 +7,11 @@ import denyelement from './rules/deny-element';
 import denyoverlaycreate from './rules/deny-overlay-create';
 import denysoftprivatemodifier from './rules/deny-soft-private-modifier';
 import implementsioniclifecycle from './rules/implements-ionic-lifecycle';
+import initializetimezoneatmodulescope from './rules/initialize-timezone-at-module-scope';
 import ionicattrtypecheck from './rules/ionic-attr-type-check';
 import nocomponentmethodexceptlifecycle from './rules/no-component-method-except-lifecycle';
 import nocomponentwritablesignal from './rules/no-component-writable-signal';
+import noimplicittimezone from './rules/no-implicit-timezone';
 import noreactiveforms from './rules/no-reactive-forms';
 import notemplatedrivenforms from './rules/no-template-driven-forms';
 import preferdisablehandler from './rules/prefer-disable-handler';
@@ -33,9 +35,11 @@ export = {
     'deny-overlay-create': denyoverlaycreate,
     'deny-soft-private-modifier': denysoftprivatemodifier,
     'implements-ionic-lifecycle': implementsioniclifecycle,
+    'initialize-timezone-at-module-scope': initializetimezoneatmodulescope,
     'ionic-attr-type-check': ionicattrtypecheck,
     'no-component-method-except-lifecycle': nocomponentmethodexceptlifecycle,
     'no-component-writable-signal': nocomponentwritablesignal,
+    'no-implicit-timezone': noimplicittimezone,
     'no-reactive-forms': noreactiveforms,
     'no-template-driven-forms': notemplatedrivenforms,
     'prefer-disable-handler': preferdisablehandler,
