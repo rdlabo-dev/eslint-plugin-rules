@@ -2,7 +2,7 @@
 
 Choose a preset for a coherent starting policy, or enable individual rules. The [configuration guide](./configuration.md) provides complete setup examples for each entry point.
 
-The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “W” marks the framework-independent `workers/recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
+The package exposes 23 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “W” marks the framework-independent `workers/recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
 
 | Rule                                                                                      | Purpose                                                                            | Fix | Preset |
 | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | :-: | :----: |
@@ -19,6 +19,7 @@ The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.
 | [`no-implicit-timezone`](./rules/no-implicit-timezone.md)                                 | Prevent implicit host-timezone behavior across Date and Intl APIs.                 | No  |   TZ   |
 | [`no-reactive-forms`](./rules/no-reactive-forms.md)                                       | Disallow Reactive Forms in favor of Angular Signal Forms.                          | No  |   No   |
 | [`no-template-driven-forms`](./rules/no-template-driven-forms.md)                         | Disallow template-driven forms except configured interoperability elements.        | No  |   No   |
+| [`no-viewmodel-subscribe`](./rules/no-viewmodel-subscribe.md)                             | Keep subscription ownership on the Component instead of a ViewModel.               | No  |   No   |
 | [`prefer-disable-handler`](./rules/prefer-disable-handler.md)                             | Wrap configured event handlers to prevent duplicate async actions.                 | No  |  Yes   |
 | [`prefer-ionic-standalone`](./rules/prefer-ionic-standalone.md)                           | Prefer Ionic 9 standalone imports and disallow `IonicModule`.                      | Yes |  Yes   |
 | [`prefer-modal-launcher`](./rules/prefer-modal-launcher.md)                               | Restrict `presentModal` calls to `launch*` functions.                              | No  |  Yes   |

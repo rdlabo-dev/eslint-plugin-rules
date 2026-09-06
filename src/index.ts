@@ -14,6 +14,7 @@ import nocomponentwritablesignal from './rules/no-component-writable-signal';
 import noimplicittimezone from './rules/no-implicit-timezone';
 import noreactiveforms from './rules/no-reactive-forms';
 import notemplatedrivenforms from './rules/no-template-driven-forms';
+import noviewmodelsubscribe from './rules/no-viewmodel-subscribe';
 import preferdisablehandler from './rules/prefer-disable-handler';
 import preferionicstandalone from './rules/prefer-ionic-standalone';
 import prefermodallauncher from './rules/prefer-modal-launcher';
@@ -42,6 +43,7 @@ export = {
     'no-implicit-timezone': noimplicittimezone,
     'no-reactive-forms': noreactiveforms,
     'no-template-driven-forms': notemplatedrivenforms,
+    'no-viewmodel-subscribe': noviewmodelsubscribe,
     'prefer-disable-handler': preferdisablehandler,
     'prefer-ionic-standalone': preferionicstandalone,
     'prefer-modal-launcher': prefermodallauncher,
