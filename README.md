@@ -6,13 +6,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- /rdlabo-docs-omit -->
 
-Install the plugin as a development dependency:
+Shared code conventions for Angular and Ionic applications, with framework-independent TypeScript presets for Cloudflare Workers. Catch inconsistent component boundaries, template usage, and implicit timezone operations during linting, before they reach code review.
+
+Choose the policies your project needs: Angular and Ionic defaults, focused Workers error boundaries, or an optional companion to `@rdlabo/workers-timezone`. The Workers entry point does not load Angular or Ionic.
+
+## Install
+
+Install the plugin as a development dependency in an ESLint project:
 
 ```sh
 npm install --save-dev @rdlabo/eslint-plugin-rules
 ```
 
-The package root provides Angular and Ionic rules. Install `@angular-eslint/template-parser`, `@ionic/angular`, and `@ionic/core` when you enable those rules. Framework-independent TypeScript projects can use the `/typescript` entry point without loading Angular or Ionic. Cloudflare Workers presets cover explicit error boundaries and timezone-safe Date usage.
+For Angular and Ionic rules, also install the corresponding framework peers below. For a complete setup, follow [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 ## Requirements
 
@@ -27,29 +33,25 @@ The package root provides Angular and Ionic rules. Install `@angular-eslint/temp
 
 ## Choose an entry point
 
-| Preset                         | Entry point                              | Purpose                                                  |
-| ------------------------------ | ---------------------------------------- | -------------------------------------------------------- |
-| `recommended`                  | `@rdlabo/eslint-plugin-rules`            | Angular and Ionic fleet defaults for TypeScript and HTML |
-| `workers/recommended`          | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in Workers `try/catch` policy                        |
-| `workers-timezone/recommended` | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in companion policy for `@rdlabo/workers-timezone`   |
+| Preset                         | Entry point                              | Purpose                                                |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------ |
+| `recommended`                  | `@rdlabo/eslint-plugin-rules`            | Angular and Ionic conventions for TypeScript and HTML  |
+| `workers/recommended`          | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in Workers `try/catch` policy                      |
+| `workers-timezone/recommended` | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in companion policy for `@rdlabo/workers-timezone` |
 
 The Angular `recommended` preset ships with the package root. The two Workers presets are independent opt-ins on `/typescript`; neither includes the other.
 
-For timezone conversions and calendar boundaries, see the [`@rdlabo/workers-timezone` usage guide](https://github.com/rdlabo-dev/workers-hono-kit/tree/main/packages/timezone#readme).
+For timezone conversions and calendar boundaries, see the [`@rdlabo/workers-timezone` usage guide](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme). The library performs runtime conversions; the optional ESLint preset flags statically identifiable implicit timezone operations and misplaced initialization calls. It does not validate every dynamic value or enforce a single initialization across the entire application.
 
 The recommended preset is designed for ESLint Flat Config. Add it at the top level so its TypeScript and HTML file selectors remain intact.
 
 For Ionic templates, the preset also requires `ion-item` elements inside `ion-list` to use `ion-item-group`, `ion-reorder-group`, `ion-radio-group`, or `ion-accordion` within `ion-accordion-group`, matching the iOS 26 and Material Design 3 list structure.
 
-## Next step
-
-Continue to [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration) to enable the recommended preset or individual rules.
-
 ## Documentation
 
-- [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration)
-- [Migration guide](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration)
-- [Rules](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules)
+- [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration) — copy a setup for Angular/Ionic, TypeScript, or Workers.
+- [Rules](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules) — compare preset coverage, options, and examples.
+- [Migration guide](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration) — update an existing installation.
 
 <!-- rdlabo-docs-omit -->
 

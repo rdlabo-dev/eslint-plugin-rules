@@ -2,7 +2,7 @@
 
 > Require `presentModal` calls to live inside a `launch*` launcher function.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 Modals and sheets should be presented through a dedicated launcher function exported from the target page. This keeps call sites decoupled from modal construction details and makes the modal API consistent across the application. This rule ensures that `presentModal` (or other configured present methods) are only called inside functions whose name matches a launcher pattern.
 

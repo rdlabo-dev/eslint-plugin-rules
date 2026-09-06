@@ -2,7 +2,7 @@
 
 > Require ion-item elements in ion-list to be wrapped by a supported Ionic item group.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Ionic's iOS 26 and Material Design 3 list styling expects list items to be organized through the group component that matches their behavior. This rule prevents a bare `ion-item` from being rendered directly under `ion-list`.

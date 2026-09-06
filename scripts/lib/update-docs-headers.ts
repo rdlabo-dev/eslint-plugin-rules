@@ -37,7 +37,7 @@ function renderHeader(rule: RuleInfo): string {
   }
 
   if (rule.recommended === 'recommended') {
-    notes.push(`> - ⭐️ This rule is included in \`plugin:${pluginId}/recommended\` preset.`);
+    notes.push('> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).');
   }
   if (rule.fixable) {
     notes.push(

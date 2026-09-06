@@ -1,3 +1,7 @@
+# Configuration
+
+Use the package root for Angular and Ionic, or `/typescript` for framework-independent code. Start with the setup for your project, then enable only the policies you need. See the [rule catalog](./rules.md) for preset coverage and the [migration guide](./migration.md) when upgrading.
+
 ## Angular and Ionic
 
 Plugin 22 supports Angular and Angular ESLint 21–22 with Ionic Framework 9. When upgrading from plugin 21, review the [migration guide](./migration.md) before enabling the updated recommended preset.
@@ -32,14 +36,30 @@ module.exports = tseslint.config(
 
 Do not place `rdlabo.configs.recommended` inside a scoped `extends`. The `typescript-eslint` config helper would replace the preset's internal `files` selectors and could run TypeScript-only rules against templates.
 
+### Angular and Ionic recommended coverage
+
+The preset enables the common Signal, component boundary, lifecycle, overlay, readonly, and try-block rules for TypeScript. Its HTML config enables Ionic attribute checking, denied overlay elements, double-action prevention, error text on validation controls, and item grouping inside lists.
+
+The TypeScript preset includes `prefer-ionic-standalone`, which requires Ionic 9 root imports and rejects `IonicModule` and NgModule-based lazy imports.
+
+`deny-constructor-di` is deprecated and is not in the preset. Prefer Angular's `inject()` migration.
+
 ## Framework-independent TypeScript
 
+To select individual rules without Angular or Ionic, use `eslint.config.mjs` with typed linting. Install the same configuration dependencies listed in the Workers section below, and ensure the linted TypeScript files belong to your project's `tsconfig.json`.
+
 ```js
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import tseslint from 'typescript-eslint';
 import rdlabo from '@rdlabo/eslint-plugin-rules/typescript';
 
 export default tseslint.config({
   files: ['**/*.ts'],
+  extends: [...tseslint.configs.recommendedTypeChecked],
+  languageOptions: {
+    parserOptions: { projectService: true, tsconfigRootDir: dirname(fileURLToPath(import.meta.url)) },
+  },
   plugins: { '@rdlabo/rules': rdlabo },
   rules: {
     '@rdlabo/rules/deny-soft-private-modifier': 'error',
@@ -58,14 +78,6 @@ export default tseslint.config({
 ```
 
 Typed linting is required for the full Promise and RxJS checks in `restrict-try-block`.
-
-## Recommended preset
-
-The preset enables the common Signal, component boundary, lifecycle, overlay, readonly, and try-block rules for TypeScript. Its HTML config enables Ionic attribute checking, denied overlay elements, double-action prevention, error text on validation controls, and item grouping inside lists.
-
-The TypeScript preset includes `prefer-ionic-standalone`, which requires Ionic 9 root imports and rejects `IonicModule` and NgModule-based lazy imports.
-
-`deny-constructor-di` is deprecated and is not in the preset. Prefer Angular's `inject()` migration.
 
 ## Cloudflare Workers
 
@@ -110,4 +122,6 @@ npm install --save-dev eslint @eslint/js typescript typescript-eslint @rdlabo/es
 
 `no-implicit-timezone` requires typed linting. `initialize-timezone-at-module-scope` is syntactic: a file may omit initialization, and when initialization is present there may be at most one allowed site in that file—not an app-wide single site, and not a mandatory call in every module.
 
-The timezone preset is a companion to [`@rdlabo/workers-timezone`](https://github.com/rdlabo-dev/workers-hono-kit/tree/main/packages/timezone#readme); neither package depends on the other at runtime. The Workers preset deliberately does not include the timezone preset, so future general Workers policies cannot silently change a project that selected only the date policy.
+The timezone preset is a companion to [`@rdlabo/workers-timezone`](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme); neither package depends on the other at runtime. It reports statically identifiable operations, not every dynamic timezone value. See [no-implicit-timezone](./rules/no-implicit-timezone.md) and [initialize-timezone-at-module-scope](./rules/initialize-timezone-at-module-scope.md) for exact coverage and limitations.
+
+The Workers preset deliberately does not include the timezone preset, so general Workers policy updates do not implicitly enable date policies.

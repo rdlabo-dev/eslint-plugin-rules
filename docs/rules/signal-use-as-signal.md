@@ -2,7 +2,7 @@
 
 > This plugin check to valid signal use as signal.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Angular Signals are getter functions. Reading them requires `()`, and writing them must go through `.set()` or `.update()`. This rule catches code that uses a Signal variable as if it were a plain value, and it can auto-fix many common mistakes.

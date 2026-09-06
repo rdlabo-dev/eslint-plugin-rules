@@ -1,3 +1,7 @@
+# Rules
+
+Choose a preset for a coherent starting policy, or enable individual rules. The [configuration guide](./configuration.md) provides complete setup examples for each entry point.
+
 The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “W” marks the framework-independent `workers/recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
 
 | Rule                                                                                      | Purpose                                                                            | Fix | Preset |

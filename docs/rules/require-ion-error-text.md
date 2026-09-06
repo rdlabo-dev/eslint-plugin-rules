@@ -2,7 +2,7 @@
 
 > Require Ionic validation controls to provide an errorText source.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 Requires Ionic controls participating in Angular Signal Forms validation to have a source for `errorText`.
 

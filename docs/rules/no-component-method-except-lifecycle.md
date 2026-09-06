@@ -2,7 +2,7 @@
 
 > Disallow non-lifecycle methods on `@Component`. Allowed lifecycle methods are derived from `implements` (properties are allowed).
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 This rule enforces thin Components. A Component should contain lifecycle hooks, delegated event handlers, and read-only view properties. Arbitrary business logic should live in a ViewModel, accessed through the Component's `vm` property.
 

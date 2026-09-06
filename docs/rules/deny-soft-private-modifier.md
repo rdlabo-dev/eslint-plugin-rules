@@ -2,7 +2,7 @@
 
 > This plugin disallows the use of soft private modifier.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 TypeScript's `private` modifier is only enforced at compile time. It can still be accessed at runtime through bracket notation or by casting to `any`. JavaScript hard-private fields (`#`) are runtime-enforced and cannot be bypassed from outside the class. This rule replaces `private` properties and methods with `#` fields and updates `this.x` references to `this.#x`.
