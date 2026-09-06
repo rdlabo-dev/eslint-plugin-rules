@@ -2,7 +2,7 @@
 
 > This plugin disallows the use of certain HTML tags.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 This rule prevents specific elements from being used in Angular templates. It is commonly used to ban inline overlay components such as `<ion-modal>`, `<ion-popover>`, `<ion-toast>`, `<ion-alert>`, `<ion-loading>`, `<ion-picker>`, and `<ion-action-sheet>`, which should be presented through launcher methods or dedicated services instead of being declared in the template.
 

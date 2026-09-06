@@ -2,7 +2,7 @@
 
 > Prefer the Ionic 9 standalone API and disallow IonicModule and obsolete or NgModule-based entry points.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Ionic 9 exports standalone Angular components from `@ionic/angular`. This rule keeps applications on that API surface by rejecting the obsolete `@ionic/angular/standalone` entry point, the NgModule-based `@ionic/angular/lazy` entry point, and `IonicModule` itself.

@@ -2,7 +2,7 @@
 
 > Require a wrapper method (default: disableHandler($event, work)) on configured element/event bindings to prevent double taps while async work runs
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 When a user taps a button that triggers async work, the control should be disabled until the work settles. Otherwise, a second tap can fire the action again. This rule enforces the wrapper-call syntax for configured `(event)` bindings. The wrapper implementation is responsible for disabling the UI and handling the work value correctly.
 

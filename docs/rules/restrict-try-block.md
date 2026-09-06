@@ -2,7 +2,7 @@
 
 > Restrict Promise, RxJS, Angular Signal contexts, `Promise.resolve()` escape hatches, and physical code lines inside try blocks.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 `try/catch` should protect a small, synchronous operation that can actually throw. Putting async work, long blocks, or reactive callbacks inside `try` obscures error boundaries and can swallow or misroute errors. This rule enforces those constraints.
 

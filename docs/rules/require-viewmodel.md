@@ -2,7 +2,7 @@
 
 > Enforce Component `new ViewModel(this)`, `ViewModelStore<ComponentType, Keys>` inheritance, and keep View APIs off ViewModel.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 This rule enforces the ViewModel architecture pattern. An Angular Component must own a ViewModel initialized with `new ViewModel(this)`. The rule requires at least one matching property; it does not reject additional ViewModel instances. The ViewModel must extend `ViewModelStore<ComponentType>` and should not redeclare `host` or contain View-specific APIs such as `viewChild`, `effect`, `computed`, or `afterNextRender`.
 

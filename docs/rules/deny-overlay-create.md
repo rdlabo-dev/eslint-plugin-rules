@@ -2,7 +2,7 @@
 
 > Disallow `.create()` on ModalController / PopoverController; open overlays via launchers instead.
 >
-> - ⭐️ This rule is included in `plugin:@rdlabo/rules/recommended` preset.
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
 
 This rule prevents direct creation of Ionic overlays through controller `.create()` calls. In the rdlabo architecture, overlays should be opened through launcher functions and a shared `presentModal` / `presentPopover` helper. This keeps overlay logic centralized and the call site decoupled from the controller API.
 
