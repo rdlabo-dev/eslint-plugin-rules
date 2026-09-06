@@ -8,13 +8,7 @@
 
 Shared code conventions for Angular and Ionic applications, with framework-independent TypeScript presets for Cloudflare Workers. Catch inconsistent component boundaries, template usage, and implicit timezone operations during linting, before they reach code review.
 
-Choose the policies your project needs: Angular and Ionic defaults, focused Workers error boundaries, or a companion to `@rdlabo/workers-timezone`. The Workers entry point does not load Angular or Ionic.
-
-## See a rule work before choosing a preset
-
-[Try lint detection and autofix](./docs/quickstart.md) in a small TypeScript project, without installing Angular or Ionic. Start from a reported violation, apply a fix, and confirm a clean lint run. Then choose the preset for your application.
-
-For timezone work, the recommended first experience is [Workers Timezone plus ESLint](https://docs.rdlabo.dev/projects/workers-timezone/docs/quickstart): runtime conversion and checks on future code changes serve different roles and work together.
+[Try lint detection and autofix](./docs/quickstart.md) in a small TypeScript project, without installing Angular or Ionic.
 
 ## Install
 
@@ -45,13 +39,7 @@ For Angular and Ionic rules, also install the corresponding framework peers belo
 | `workers/recommended`          | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in Workers `try/catch` policy                      |
 | `workers-timezone/recommended` | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in companion policy for `@rdlabo/workers-timezone` |
 
-The Angular `recommended` preset ships with the package root. The two Workers presets are independent opt-ins on `/typescript`; neither includes the other.
-
-For timezone conversions and calendar boundaries, see the [`@rdlabo/workers-timezone` usage guide](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme). The library performs runtime conversions; the separately installed ESLint preset flags statically identifiable implicit timezone operations and misplaced initialization calls. It does not validate every dynamic value or enforce a single initialization across the entire application.
-
-The recommended preset is designed for ESLint Flat Config. Add it at the top level so its TypeScript and HTML file selectors remain intact.
-
-For Ionic templates, the preset also requires `ion-item` elements inside `ion-list` to use `ion-item-group`, `ion-reorder-group`, `ion-radio-group`, or `ion-accordion` within `ion-accordion-group`, matching the iOS 26 and Material Design 3 list structure.
+The Angular `recommended` preset ships with the package root. The two Workers presets are independent opt-ins on `/typescript`; neither includes the other. For timezone conversions and checks, pair with [`@rdlabo/workers-timezone`](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme). Flat Config selectors and Ionic list structure live in [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 ## Documentation
 
