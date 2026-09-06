@@ -18,7 +18,7 @@ export interface RuleInfo {
 }
 
 export const rules: RuleInfo[] = readdirSync(rootDir)
-  .filter((filename) => filename.endsWith('.ts') && filename !== 'types.ts' && filename !== 'utils.ts')
+  .filter((filename) => filename.endsWith('.ts') && filename !== 'types.ts' && filename !== 'utils.ts' && filename !== 'template-ast-utils.ts')
   .sort()
   .map((filename): RuleInfo => {
     const filePath = join(rootDir, filename);

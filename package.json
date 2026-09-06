@@ -2,7 +2,7 @@
   "name": "@rdlabo/eslint-plugin-rules",
   "private": false,
   "version": "22.0.1-0",
-  "description": "",
+  "description": "ESLint rules and presets for Ionic, Angular, TypeScript, and Cloudflare Workers",
   "engines": {
     "node": ">=20.0.0"
   },
@@ -100,7 +100,10 @@
     "typescript",
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "cloudflare-workers",
+    "hono",
+    "timezone"
   ],
   "author": "Masahiko Sakakibara<sakakibara@rdlabo.jp>",
   "license": "MIT",

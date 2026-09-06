@@ -66,3 +66,44 @@ The preset enables the common Signal, component boundary, lifecycle, overlay, re
 The TypeScript preset includes `prefer-ionic-standalone`, which requires Ionic 9 root imports and rejects `IonicModule` and NgModule-based lazy imports.
 
 `deny-constructor-di` is deprecated and is not in the preset. Prefer Angular's `inject()` migration.
+
+## Cloudflare Workers
+
+The framework-independent entry point provides two independent presets:
+
+- `workers/recommended` keeps `try/catch` boundaries small and explicit.
+- `workers-timezone/recommended` prevents implicit host-timezone behavior and enforces one clear module-level `@rdlabo/workers-timezone` initialization site.
+
+Enable either preset independently, or combine both:
+
+```js
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import rdlabo from '@rdlabo/eslint-plugin-rules/typescript';
+
+const tsconfigRootDir = dirname(fileURLToPath(import.meta.url));
+
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parserOptions: { projectService: true, tsconfigRootDir },
+    },
+    plugins: { '@rdlabo/rules': rdlabo },
+  },
+  ...rdlabo.configs['workers/recommended'],
+  ...rdlabo.configs['workers-timezone/recommended'],
+);
+```
+
+Install the configuration dependencies used above:
+
+```sh
+npm install --save-dev eslint @eslint/js typescript typescript-eslint @rdlabo/eslint-plugin-rules
+```
+
+The timezone preset is a companion to `@rdlabo/workers-timezone`; neither package depends on the other at runtime. The Workers preset deliberately does not include the timezone preset, so future general Workers policies cannot silently change a project that selected only the date policy.
