@@ -99,7 +99,13 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
     const sourceCode = context.sourceCode;
     const services = typedServices(context);
 
-    function checkTimeZone(node: TSESTree.CallExpression | TSESTree.NewExpression, options: TSESTree.CallExpressionArgument | undefined) {
+    function checkTimeZone(node: TSESTree.CallExpression | TSESTree.NewExpression) {
+      // Options are arguments[1]. A SpreadElement in the first two slots makes that
+      // position uncertain (e.g. `...['en-US', { timeZone: 'UTC' }]`), so skip.
+      // A spread only after a fixed second argument still leaves options analyzable.
+      const args = node.arguments;
+      if (args.slice(0, 2).some((argument) => argument.type === 'SpreadElement')) return;
+      const options = args[1];
       if (explicitTimeZone(options, sourceCode) === 'invalid') {
         context.report({
           node,
@@ -127,7 +133,7 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
     return {
       NewExpression(node: TSESTree.NewExpression) {
         if (isIntlDateTimeFormat(node.callee)) {
-          checkTimeZone(node, node.arguments[1]);
+          checkTimeZone(node);
           return;
         }
         if (!isGlobalObject(sourceCode, node.callee, 'Date')) return;
@@ -141,7 +147,7 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
           return;
         }
         if (isIntlDateTimeFormat(node.callee)) {
-          checkTimeZone(node, node.arguments[1]);
+          checkTimeZone(node);
           return;
         }
         if (node.callee.type !== 'MemberExpression') return;
@@ -154,7 +160,7 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
         if (LOCAL_METHODS.has(method)) {
           context.report({ node: node.callee.property, messageId: 'localMethod', data: { method } });
         } else if (LOCALE_METHODS.has(method)) {
-          checkTimeZone(node, node.arguments[1]);
+          checkTimeZone(node);
         }
       },
     };

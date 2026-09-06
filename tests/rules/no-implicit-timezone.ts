@@ -43,6 +43,21 @@ ruleTester.run('no-implicit-timezone', rule, {
       date.toLocaleString('en-US', { timeZone: dynamicZone });
     `,
     `
+      const localeArgs = ['en-US', { timeZone: 'UTC' }] as const;
+      const date = new Date();
+      new Intl.DateTimeFormat(...localeArgs);
+      Intl.DateTimeFormat(...localeArgs);
+      date.toLocaleString(...localeArgs);
+      date.toLocaleDateString(...localeArgs);
+      date.toLocaleTimeString(...localeArgs);
+      const optionsArgs = [{ timeZone: 'UTC' }] as const;
+      new Intl.DateTimeFormat('en-US', ...optionsArgs);
+      Intl.DateTimeFormat('en-US', ...optionsArgs);
+      date.toLocaleString('en-US', ...optionsArgs);
+      date.toLocaleString('en-US', { timeZone: 'UTC' }, ...[]);
+      new Intl.DateTimeFormat('en-US', { timeZone: 'UTC' }, ...[]);
+    `,
+    `
       type Instant = Date;
       declare const instant: Instant;
       instant.getUTCFullYear();
@@ -126,6 +141,10 @@ ruleTester.run('no-implicit-timezone', rule, {
         Intl.DateTimeFormat('ja-JP', { ['timeZone']: '' });
         date.toLocaleString('en-US', null);
         Intl.DateTimeFormat('en-US', undefined);
+        date.toLocaleTimeString();
+        date.toLocaleString('en-US', { timeZone: '' }, ...[]);
+        new Intl.DateTimeFormat('en-US', { timeZone: undefined }, ...[]);
+        Intl.DateTimeFormat('en-US', null, ...[]);
       `,
       errors: [
         { messageId: 'missingTimeZone' },
@@ -133,6 +152,10 @@ ruleTester.run('no-implicit-timezone', rule, {
         { messageId: 'missingTimeZone' },
         { messageId: 'invalidTimeZone' },
         { messageId: 'missingTimeZone' },
+        { messageId: 'missingTimeZone' },
+        { messageId: 'missingTimeZone' },
+        { messageId: 'invalidTimeZone' },
+        { messageId: 'invalidTimeZone' },
         { messageId: 'missingTimeZone' },
       ],
     },
