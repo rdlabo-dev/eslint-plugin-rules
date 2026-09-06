@@ -61,7 +61,7 @@ Typed linting is required for the full Promise and RxJS checks in `restrict-try-
 
 ## Recommended preset
 
-The preset enables the common Signal, component boundary, lifecycle, overlay, readonly, and try-block rules for TypeScript. Its HTML config enables Ionic attribute checking, denied overlay elements, and double-action prevention.
+The preset enables the common Signal, component boundary, lifecycle, overlay, readonly, and try-block rules for TypeScript. Its HTML config enables Ionic attribute checking, denied overlay elements, double-action prevention, error text on validation controls, and item grouping inside lists.
 
 The TypeScript preset includes `prefer-ionic-standalone`, which requires Ionic 9 root imports and rejects `IonicModule` and NgModule-based lazy imports.
 
@@ -69,12 +69,14 @@ The TypeScript preset includes `prefer-ionic-standalone`, which requires Ionic 9
 
 ## Cloudflare Workers
 
-The framework-independent entry point provides two independent presets:
+The framework-independent `/typescript` entry point provides two independent opt-in presets. Neither is included by Angular `recommended`, and neither includes the other.
 
-- `workers/recommended` keeps `try/catch` boundaries small and explicit.
-- `workers-timezone/recommended` prevents implicit host-timezone behavior and enforces one clear module-level `@rdlabo/workers-timezone` initialization site.
+| Preset                         | Rules and options                                                                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `workers/recommended`          | `restrict-try-block` with `{ allowPromise: false, allowPromiseResolve: true, allowRxjs: false, allowInSignal: false, maxLines: 3 }` |
+| `workers-timezone/recommended` | `no-implicit-timezone` and `initialize-timezone-at-module-scope` (both `error`)                                                     |
 
-Enable either preset independently, or combine both:
+Enable either preset independently, or combine both. Scope type-aware `typescript-eslint` configs to `**/*.ts` so tools that lint `eslint.config.mjs` do not ask `projectService` for a TypeScript project that does not include that file:
 
 ```js
 import { dirname } from 'node:path';
@@ -87,9 +89,9 @@ const tsconfigRootDir = dirname(fileURLToPath(import.meta.url));
 
 export default tseslint.config(
   eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
   {
     files: ['**/*.ts'],
+    extends: [...tseslint.configs.recommendedTypeChecked],
     languageOptions: {
       parserOptions: { projectService: true, tsconfigRootDir },
     },
@@ -106,4 +108,6 @@ Install the configuration dependencies used above:
 npm install --save-dev eslint @eslint/js typescript typescript-eslint @rdlabo/eslint-plugin-rules
 ```
 
-The timezone preset is a companion to `@rdlabo/workers-timezone`; neither package depends on the other at runtime. The Workers preset deliberately does not include the timezone preset, so future general Workers policies cannot silently change a project that selected only the date policy.
+`no-implicit-timezone` requires typed linting. `initialize-timezone-at-module-scope` is syntactic: a file may omit initialization, and when initialization is present there may be at most one allowed site in that file—not an app-wide single site, and not a mandatory call in every module.
+
+The timezone preset is a companion to [`@rdlabo/workers-timezone`](https://github.com/rdlabo-dev/workers-hono-kit/tree/main/packages/timezone#readme); neither package depends on the other at runtime. The Workers preset deliberately does not include the timezone preset, so future general Workers policies cannot silently change a project that selected only the date policy.

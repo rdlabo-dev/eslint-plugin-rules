@@ -27,9 +27,15 @@ The package root provides Angular and Ionic rules. Install `@angular-eslint/temp
 
 ## Choose an entry point
 
-- Use `@rdlabo/eslint-plugin-rules` for Angular and Ionic applications.
-- Use `@rdlabo/eslint-plugin-rules/typescript` for backend and other framework-independent TypeScript projects.
-- Add `workers/recommended` for general Workers policy and `workers-timezone/recommended` for the `@rdlabo/workers-timezone` companion policy.
+| Preset                         | Entry point                              | Purpose                                                  |
+| ------------------------------ | ---------------------------------------- | -------------------------------------------------------- |
+| `recommended`                  | `@rdlabo/eslint-plugin-rules`            | Angular and Ionic fleet defaults for TypeScript and HTML |
+| `workers/recommended`          | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in Workers `try/catch` policy                        |
+| `workers-timezone/recommended` | `@rdlabo/eslint-plugin-rules/typescript` | Opt-in companion policy for `@rdlabo/workers-timezone`   |
+
+The Angular `recommended` preset ships with the package root. The two Workers presets are independent opt-ins on `/typescript`; neither includes the other.
+
+For timezone conversions and calendar boundaries, see the [`@rdlabo/workers-timezone` usage guide](https://github.com/rdlabo-dev/workers-hono-kit/tree/main/packages/timezone#readme).
 
 The recommended preset is designed for ESLint Flat Config. Add it at the top level so its TypeScript and HTML file selectors remain intact.
 

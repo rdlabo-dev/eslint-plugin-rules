@@ -1,4 +1,4 @@
-The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
+The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.recommended` preset. “W” marks the framework-independent `workers/recommended` preset. “TZ” marks the framework-independent `workers-timezone/recommended` preset.
 
 | Rule                                                                                      | Purpose                                                                            | Fix | Preset |
 | ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | :-: | :----: |
@@ -21,7 +21,7 @@ The package exposes 22 rules. “Yes” marks the Ionic/Angular `rdlabo.configs.
 | [`require-ion-error-text`](./rules/require-ion-error-text.md)                             | Require Ionic error text on validation controls.                                   | No  |  Yes   |
 | [`require-ion-item-group`](./rules/require-ion-item-group.md)                             | Require grouped Ionic list items for iOS 26 and Material Design 3.                 | Yes |  Yes   |
 | [`require-viewmodel`](./rules/require-viewmodel.md)                                       | Enforce component ownership and the `ViewModelStore` boundary.                     | No  |  Yes   |
-| [`restrict-try-block`](./rules/restrict-try-block.md)                                     | Keep `try` blocks small and exclude Promise, RxJS, and Signal contexts by policy.  | No  |  Yes   |
+| [`restrict-try-block`](./rules/restrict-try-block.md)                                     | Keep `try` blocks small and exclude Promise, RxJS, and Signal contexts by policy.  | No  | Yes, W |
 | [`signal-use-as-signal-template`](./rules/signal-use-as-signal-template.md)               | Require `()` when reading Angular Signals in templates.                            | No  |  Yes   |
 | [`signal-use-as-signal`](./rules/signal-use-as-signal.md)                                 | Require correct Signal reads and writes in TypeScript.                             | Yes |  Yes   |
 
@@ -31,4 +31,4 @@ Each rule page in this documentation contains options and correct/incorrect exam
 
 ## Typed rules
 
-Enable `parserOptions.projectService` for rules that inspect TypeScript types. Without typed linting, `restrict-try-block` still performs syntax-based checks but skips type-dependent Promise and RxJS detection.
+Enable `parserOptions.projectService` for rules that inspect TypeScript types. Without typed linting, `restrict-try-block` still performs syntax-based checks but skips type-dependent Promise and RxJS detection. `no-implicit-timezone` requires typed linting. `initialize-timezone-at-module-scope` is syntactic only and does not need type information.
