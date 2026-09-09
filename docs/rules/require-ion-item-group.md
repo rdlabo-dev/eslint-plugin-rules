@@ -9,14 +9,14 @@ Ionic's iOS 26 and Material Design 3 list styling expects list items to be organ
 
 ## Rule Details
 
-An `ion-item` within `ion-list` must use exactly one of these structures:
+An `ion-item` within `ion-list` must have a supported group between itself and its nearest enclosing list. Common structures include:
 
 - `ion-list > ion-item-group > ion-item`
 - `ion-list > ion-reorder-group > ion-item`
 - `ion-list > ion-accordion-group > ion-accordion > ion-item`
 - `ion-list > ion-radio-group > ion-item`
 
-Angular control-flow blocks such as `@if`, `@for`, `@empty`, `@switch`, and `@defer` are transparent for this structural check because they do not render an element. `ng-container` and `ng-template` are also transparent. Rendered HTML or Angular elements are not transparent: inserting a `div` between the list, group, or item is reported.
+Angular control-flow blocks such as `@if`, `@for`, `@empty`, `@switch`, and `@defer` are transparent for this structural check because they do not render an element. `ng-container` and `ng-template` are also transparent. Rendered wrappers and nested groups are allowed. For example, `ion-list > ion-item-group > ion-accordion-group > ion-accordion > ion-item` is valid. This rule detects missing groups, not exact layout depth. An outer list’s group does not satisfy the requirement for items inside a nested `ion-list`.
 
 The rule only checks `ion-item` elements contained by `ion-list`. An `ion-item` outside a list is not reported, and `.spec.html` files are ignored.
 
