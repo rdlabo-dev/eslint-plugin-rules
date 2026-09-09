@@ -10,6 +10,15 @@ const ruleTester = new RuleTester({
 
 ruleTester.run('require-ion-item-group', rule, {
   valid: [
+    { code: '<ion-list><ion-item-group><div><ion-item></ion-item></div></ion-item-group></ion-list>', filename: 'template.html' },
+    { code: '<ion-list><div><ion-item-group><ion-item></ion-item></ion-item-group></div></ion-list>', filename: 'template.html' },
+    {
+      code: '<ion-list><ion-item-group>@if (visible) { <ion-accordion-group><ion-accordion><ion-item slot="header">Date</ion-item></ion-accordion></ion-accordion-group> }<ion-item>Other</ion-item></ion-item-group></ion-list>',
+      filename: 'template.html',
+    },
+    { code: '<ion-list><ion-radio-group><div><ion-item>Choice</ion-item></div></ion-radio-group></ion-list>', filename: 'template.html' },
+    { code: '<ion-list><ion-reorder-group><div><ion-item>Row</ion-item></div></ion-reorder-group></ion-list>', filename: 'template.html' },
+
     { code: '<ion-item></ion-item>', filename: 'template.html' },
     { code: '<ion-list></ion-list>', filename: 'template.html' },
     {
@@ -86,6 +95,12 @@ ruleTester.run('require-ion-item-group', rule, {
   ],
   invalid: [
     {
+      code: '<ion-list><ion-item-group><ion-list><div><ion-item>Ungrouped inner row</ion-item></div></ion-list></ion-item-group></ion-list>',
+      filename: 'template.html',
+      errors: [{ messageId: 'requireIonItemGroup', suggestions: null }],
+    },
+
+    {
       code: '<ion-list><ion-item></ion-item></ion-list>',
       filename: 'template.html',
       errors: [
@@ -104,11 +119,6 @@ ruleTester.run('require-ion-item-group', rule, {
       code: '<ion-list><div><ion-item></ion-item></div></ion-list>',
       filename: 'template.html',
       output: null,
-      errors: [{ messageId: 'requireIonItemGroup' }],
-    },
-    {
-      code: '<ion-list><ion-item-group><div><ion-item></ion-item></div></ion-item-group></ion-list>',
-      filename: 'template.html',
       errors: [{ messageId: 'requireIonItemGroup' }],
     },
     {

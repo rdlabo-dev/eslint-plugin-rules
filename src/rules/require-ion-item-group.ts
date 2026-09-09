@@ -2,7 +2,7 @@ import { TSESLint } from '@typescript-eslint/utils';
 import type { TSESTree } from '@typescript-eslint/utils';
 import { isRenderedElement, isRenderedText, isTransparentTemplateStructure, type TemplateAstNode, visitTemplateChildren } from './template-ast-utils';
 
-const DIRECT_ITEM_GROUPS = new Set(['ion-item-group', 'ion-reorder-group', 'ion-radio-group']);
+const ITEM_GROUPS = new Set(['ion-item-group', 'ion-reorder-group', 'ion-radio-group']);
 
 type MessageIds = 'requireIonItemGroup' | 'wrapIonItemGroup';
 
@@ -97,10 +97,10 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
           if (listIndex >= 0) {
             const nearestList = ancestors[listIndex];
             const elementsAfterList = ancestors.slice(listIndex + 1).map((ancestor) => ancestor.name);
-            const hasDirectItemGroup = elementsAfterList.length === 1 && DIRECT_ITEM_GROUPS.has(elementsAfterList[0] ?? '');
-            const hasAccordionGroup =
-              elementsAfterList.length === 2 && elementsAfterList[0] === 'ion-accordion-group' && elementsAfterList[1] === 'ion-accordion';
-            const hasRequiredStructure = hasDirectItemGroup || hasAccordionGroup;
+            const hasItemGroup = elementsAfterList.some((name) => ITEM_GROUPS.has(name ?? ''));
+            const accordionGroupIndex = elementsAfterList.indexOf('ion-accordion-group');
+            const hasAccordionGroup = accordionGroupIndex >= 0 && elementsAfterList.slice(accordionGroupIndex + 1).includes('ion-accordion');
+            const hasRequiredStructure = hasItemGroup || hasAccordionGroup;
 
             if (!hasRequiredStructure) {
               const reportNode = node as unknown as TSESTree.Node;
