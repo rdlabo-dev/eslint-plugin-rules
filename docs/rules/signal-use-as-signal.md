@@ -2,7 +2,7 @@
 
 > This plugin check to valid signal use as signal.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Angular Signals are getter functions. Reading them requires `()`, and writing them must go through `.set()` or `.update()`. This rule catches code that uses a Signal variable as if it were a plain value, and it can auto-fix many common mistakes.
@@ -135,12 +135,12 @@ This rule has no options.
 
 ## When to enable
 
-Enable this rule in any Angular project that uses Signals. It is complementary to [`@rdlabo/rules/signal-use-as-signal-template`](./signal-use-as-signal-template.md), which checks Signal usage in templates.
+Enable this rule in any Angular project that uses Signals. It is complementary to [`@rdlabo/rules/signal-use-as-signal-template`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/signal-use-as-signal-template), which checks Signal usage in templates.
 
 ## See also
 
-- [`@rdlabo/rules/signal-use-as-signal-template`](./signal-use-as-signal-template.md)
-- [`@rdlabo/rules/no-component-writable-signal`](./no-component-writable-signal.md)
+- [`@rdlabo/rules/signal-use-as-signal-template`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/signal-use-as-signal-template)
+- [`@rdlabo/rules/no-component-writable-signal`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-component-writable-signal)
 
 ## Implementation
 

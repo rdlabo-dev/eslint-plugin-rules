@@ -6,7 +6,7 @@ Make a convention executable: inspect a TypeScript private member, see the diagn
 
 ## 1. Create a small lint project
 
-Use Node.js 24 and npm. This isolated exercise uses ESLint 10; see [requirements](../README.md) before changing an existing application.
+Use Node.js 24 and npm. This isolated exercise uses ESLint 10; see [requirements](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/getting-started) before changing an existing application.
 
 ```sh
 mkdir eslint-rules-demo
@@ -85,6 +85,6 @@ This is one rule demonstration, not a complete project preset. Not every rule ha
 
 The two Workers presets are independent opt-ins. For timezone work, start with [the paired library and lint exercise](https://docs.rdlabo.dev/projects/workers-timezone/docs/quickstart). The plugin reports code patterns; it does not implement runtime conversions or replace application tests.
 
-Open [Configuration](./configuration.md) for Angular/Ionic or Workers setup. Preserve the TypeScript and HTML selectors when spreading the Angular preset, and enable typed linting for rules that inspect types. Run your project lint command in CI and include it in contributor and AI coding instructions.
+Open [Configuration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration) for Angular/Ionic or Workers setup. Preserve the TypeScript and HTML selectors when spreading the Angular preset, and enable typed linting for rules that inspect types. Run your project lint command in CI and include it in contributor and AI coding instructions.
 
-Use [the rule catalog](./rules.md) to add one policy at a time. Check [Migration](./migration.md) before enabling a newer recommended preset in an existing application.
+Use [the rule catalog](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules) to add one policy at a time. Check [Migration](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration) before enabling a newer recommended preset in an existing application.

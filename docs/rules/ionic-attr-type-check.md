@@ -2,7 +2,7 @@
 
 > Require property bindings for supported non-string Ionic attributes and validate string-literal attributes.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Ionic component attributes can be boolean, number, object, or string. Passing a string such as `button="true"` to a boolean property is a common mistake and can cause unexpected behavior. This rule reads the Ionic type definitions from `@ionic/core` and reports mismatches.

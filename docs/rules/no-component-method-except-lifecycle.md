@@ -2,7 +2,7 @@
 
 > Disallow non-lifecycle methods on `@Component`. Allowed lifecycle methods are derived from `implements` (properties are allowed).
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 This rule enforces thin Components. A Component should contain lifecycle hooks, delegated event handlers, and read-only view properties. Arbitrary business logic should live in a ViewModel, accessed through the Component's `vm` property.
 
@@ -126,11 +126,11 @@ Method names that are allowed in addition to lifecycle methods. Use this for hel
 
 ## When to enable
 
-Enable this rule when a project wants Components to stay thin and push logic to ViewModels. It pairs with [`@rdlabo/rules/require-viewmodel`](./require-viewmodel.md).
+Enable this rule when a project wants Components to stay thin and push logic to ViewModels. It pairs with [`@rdlabo/rules/require-viewmodel`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/require-viewmodel).
 
 ## See also
 
-- [`@rdlabo/rules/require-viewmodel`](./require-viewmodel.md)
+- [`@rdlabo/rules/require-viewmodel`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/require-viewmodel)
 
 ## Implementation
 

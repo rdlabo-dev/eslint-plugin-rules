@@ -22,7 +22,7 @@ This rule reports three patterns:
    The following bindings are reported in Angular templates:
    `formControl`, `formControlName`, `formGroup`, `formGroupName`, `formArrayName`.
 
-`FormsModule` and `ngModel` are intentionally outside the scope of this rule. Use [`@rdlabo/rules/no-template-driven-forms`](./no-template-driven-forms.md) to restrict those.
+`FormsModule` and `ngModel` are intentionally outside the scope of this rule. Use [`@rdlabo/rules/no-template-driven-forms`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-template-driven-forms) to restrict those.
 
 ## Examples
 
@@ -70,8 +70,8 @@ Enable this rule in Angular projects that have adopted Signal Forms, or in proje
 
 ## See also
 
-- [`@rdlabo/rules/no-template-driven-forms`](./no-template-driven-forms.md)
-- [`@rdlabo/rules/no-component-writable-signal`](./no-component-writable-signal.md)
+- [`@rdlabo/rules/no-template-driven-forms`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-template-driven-forms)
+- [`@rdlabo/rules/no-component-writable-signal`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-component-writable-signal)
 
 ## Implementation
 

@@ -78,8 +78,8 @@ Enable this rule when a project uses the ViewModel pattern with `@rdlabo/rules/r
 
 ## See also
 
-- [`@rdlabo/rules/require-viewmodel`](./require-viewmodel.md)
-- [`@rdlabo/rules/no-reactive-forms`](./no-reactive-forms.md)
+- [`@rdlabo/rules/require-viewmodel`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/require-viewmodel)
+- [`@rdlabo/rules/no-reactive-forms`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-reactive-forms)
 
 ## Implementation
 

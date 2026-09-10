@@ -2,7 +2,7 @@
 
 > Require a wrapper method (default: disableHandler($event, work)) on configured element/event bindings to prevent double taps while async work runs
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 When a user taps a button that triggers async work, the control should be disabled until the work settles. Otherwise, a second tap can fire the action again. This rule enforces the wrapper-call syntax for configured `(event)` bindings. The wrapper implementation is responsible for disabling the UI and handling the work value correctly.
 
@@ -123,12 +123,12 @@ Event methods that are allowed without the wrapper. For example, `(click)="$even
 
 ## When to enable
 
-Enable this rule in Ionic/Angular projects where user actions trigger async operations such as API calls, navigation, or modal presentation. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md) and [`@rdlabo/rules/deny-element`](./deny-element.md) to keep overlay logic centralized.
+Enable this rule in Ionic/Angular projects where user actions trigger async operations such as API calls, navigation, or modal presentation. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher) and [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element) to keep overlay logic centralized.
 
 ## See also
 
-- [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md)
-- [`@rdlabo/rules/deny-element`](./deny-element.md)
+- [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher)
+- [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element)
 
 ## Implementation
 

@@ -74,7 +74,7 @@ Enable this rule when a project is migrating to Angular Signal Forms but still n
 
 ## See also
 
-- [`@rdlabo/rules/no-reactive-forms`](./no-reactive-forms.md)
+- [`@rdlabo/rules/no-reactive-forms`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-reactive-forms)
 
 ## Implementation
 

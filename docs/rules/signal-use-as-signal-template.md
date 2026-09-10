@@ -2,7 +2,7 @@
 
 > Require () when accessing Angular Signals in templates
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 Angular Signals are functions. In a template, a Signal must be called with `()` to read its current value. Forgetting the parentheses is a common mistake when migrating from RxJS `BehaviorSubject` or from `model()` inputs. This rule detects Signal identifiers in Angular templates and reports bare reads such as `{{ count }}` or `[hidden]="count"`.
 
@@ -88,7 +88,7 @@ Enable this rule in any Angular project that uses Signals. It is especially usef
 
 ## See also
 
-- [`@rdlabo/rules/signal-use-as-signal`](./signal-use-as-signal.md)
+- [`@rdlabo/rules/signal-use-as-signal`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/signal-use-as-signal)
 
 ## Implementation
 

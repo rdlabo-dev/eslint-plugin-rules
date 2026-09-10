@@ -8,7 +8,7 @@
 
 Shared code conventions for Angular and Ionic applications, with framework-independent TypeScript presets for Cloudflare Workers. Catch inconsistent component boundaries, template usage, and implicit timezone operations during linting, before they reach code review.
 
-[Try lint detection and autofix](./docs/quickstart.md) in a small TypeScript project, without installing Angular or Ionic.
+[Try lint detection and autofix](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/quickstart) in a small TypeScript project, without installing Angular or Ionic.
 
 ## Install
 

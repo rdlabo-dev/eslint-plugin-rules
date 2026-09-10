@@ -2,7 +2,7 @@
 
 > Disallow `.create()` on ModalController / PopoverController; open overlays via launchers instead.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 This rule prevents direct creation of Ionic overlays through controller `.create()` calls. In the rdlabo architecture, overlays should be opened through launcher functions and a shared `presentModal` / `presentPopover` helper. This keeps overlay logic centralized and the call site decoupled from the controller API.
 
@@ -100,12 +100,12 @@ export class ExamplePage {
 
 ## When to enable
 
-Enable this rule in Ionic projects that follow the launcher pattern and use a shared overlay helper. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md) and [`@rdlabo/rules/deny-element`](./deny-element.md).
+Enable this rule in Ionic projects that follow the launcher pattern and use a shared overlay helper. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher) and [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element).
 
 ## See also
 
-- [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md)
-- [`@rdlabo/rules/deny-element`](./deny-element.md)
+- [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher)
+- [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element)
 
 ## Implementation
 

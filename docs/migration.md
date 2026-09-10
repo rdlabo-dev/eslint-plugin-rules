@@ -75,7 +75,7 @@ group boundary. Reusable or ambiguous templates are reported without being
 modified. Wrapper components are checked through their own templates, so a
 custom element that renders a valid grouped list is not treated as a bare
 `ion-item` in its caller. See
-[`require-ion-item-group`](./rules/require-ion-item-group.md) for the supported
+[`require-ion-item-group`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/require-ion-item-group) for the supported
 structures and fix constraints.
 
 ### Boolean autocorrect

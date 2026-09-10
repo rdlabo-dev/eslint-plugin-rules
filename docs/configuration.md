@@ -1,10 +1,10 @@
 # Configuration
 
-Use the package root for Angular and Ionic, or `/typescript` for framework-independent code. Start with the setup for your project, then enable only the policies you need. See the [rule catalog](./rules.md) for preset coverage and the [migration guide](./migration.md) when upgrading.
+Use the package root for Angular and Ionic, or `/typescript` for framework-independent code. Start with the setup for your project, then enable only the policies you need. See the [rule catalog](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules) for preset coverage and the [migration guide](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration) when upgrading.
 
 ## Angular and Ionic
 
-Plugin 22 supports Angular and Angular ESLint 21–22 with Ionic Framework 9. When upgrading from plugin 21, review the [migration guide](./migration.md) before enabling the updated recommended preset.
+Plugin 22 supports Angular and Angular ESLint 21–22 with Ionic Framework 9. When upgrading from plugin 21, review the [migration guide](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/migration) before enabling the updated recommended preset.
 
 Register the plugin, spread its recommended configs at the top level, then add the standard Angular and TypeScript configs for your project.
 
@@ -122,6 +122,6 @@ npm install --save-dev eslint @eslint/js typescript typescript-eslint @rdlabo/es
 
 `no-implicit-timezone` requires typed linting. `initialize-timezone-at-module-scope` is syntactic: a file may omit initialization, and when initialization is present there may be at most one allowed site in that file—not an app-wide single site, and not a mandatory call in every module.
 
-The timezone preset is a companion to [`@rdlabo/workers-timezone`](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme); neither package depends on the other at runtime. It reports statically identifiable operations, not every dynamic timezone value. See [no-implicit-timezone](./rules/no-implicit-timezone.md) and [initialize-timezone-at-module-scope](./rules/initialize-timezone-at-module-scope.md) for exact coverage and limitations.
+The timezone preset is a companion to [`@rdlabo/workers-timezone`](https://docs.rdlabo.dev/projects/workers-timezone/docs/readme); neither package depends on the other at runtime. It reports statically identifiable operations, not every dynamic timezone value. See [no-implicit-timezone](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-implicit-timezone) and [initialize-timezone-at-module-scope](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/initialize-timezone-at-module-scope) for exact coverage and limitations.
 
 The Workers preset deliberately does not include the timezone preset, so general Workers policy updates do not implicitly enable date policies.

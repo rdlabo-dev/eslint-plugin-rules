@@ -2,7 +2,7 @@
 
 > Warns when a property should be readonly
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 > - ✒️ The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 This rule requires non-function properties declared by Angular components to use the `readonly` modifier. It reports initialized, uninitialized, static, computed, decorated, soft-private, and hard-private properties, and can add `readonly` automatically.

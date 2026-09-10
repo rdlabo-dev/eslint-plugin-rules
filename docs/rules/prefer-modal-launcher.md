@@ -2,7 +2,7 @@
 
 > Require `presentModal` calls to live inside a `launch*` launcher function.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 Modals and sheets should be presented through a dedicated launcher function exported from the target page. This keeps call sites decoupled from modal construction details and makes the modal API consistent across the application. This rule ensures that `presentModal` (or other configured present methods) are only called inside functions whose name matches a launcher pattern.
 
@@ -119,12 +119,12 @@ export const openSheet = (overlay: Helper) => {
 
 ## When to enable
 
-Enable this rule in Ionic/Angular projects that use a launcher pattern for modals, sheets, and other overlays. It pairs with [`@rdlabo/rules/deny-element`](./deny-element.md) and [`@rdlabo/rules/prefer-disable-handler`](./prefer-disable-handler.md).
+Enable this rule in Ionic/Angular projects that use a launcher pattern for modals, sheets, and other overlays. It pairs with [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element) and [`@rdlabo/rules/prefer-disable-handler`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-disable-handler).
 
 ## See also
 
-- [`@rdlabo/rules/deny-element`](./deny-element.md)
-- [`@rdlabo/rules/prefer-disable-handler`](./prefer-disable-handler.md)
+- [`@rdlabo/rules/deny-element`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/deny-element)
+- [`@rdlabo/rules/prefer-disable-handler`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-disable-handler)
 
 ## Implementation
 

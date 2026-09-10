@@ -2,7 +2,7 @@
 
 > Enforce Component `new ViewModel(this)`, `ViewModelStore<ComponentType, Keys>` inheritance, and keep View APIs off ViewModel.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 This rule enforces the ViewModel architecture pattern. An Angular Component must own a ViewModel initialized with `new ViewModel(this)`. The rule requires at least one matching property; it does not reject additional ViewModel instances. The ViewModel must extend `ViewModelStore<ComponentType>` and should not redeclare `host` or contain View-specific APIs such as `viewChild`, `effect`, `computed`, or `afterNextRender`.
 
@@ -159,12 +159,12 @@ APIs that are not allowed inside the ViewModel. The rule detects direct calls an
 
 ## When to enable
 
-Enable this rule when a project adopts the ViewModel pattern with `@rdlabo/ionic-angular-kit` or a similar architecture. It pairs with [`@rdlabo/rules/no-component-writable-signal`](./no-component-writable-signal.md) to keep Component state read-only and ViewModel state writable.
+Enable this rule when a project adopts the ViewModel pattern with `@rdlabo/ionic-angular-kit` or a similar architecture. It pairs with [`@rdlabo/rules/no-component-writable-signal`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-component-writable-signal) to keep Component state read-only and ViewModel state writable.
 
 ## See also
 
-- [`@rdlabo/rules/no-component-writable-signal`](./no-component-writable-signal.md)
-- [`@rdlabo/rules/no-component-method-except-lifecycle`](./no-component-method-except-lifecycle.md)
+- [`@rdlabo/rules/no-component-writable-signal`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-component-writable-signal)
+- [`@rdlabo/rules/no-component-method-except-lifecycle`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/no-component-method-except-lifecycle)
 
 ## Implementation
 

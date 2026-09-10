@@ -2,7 +2,7 @@
 
 > This plugin disallows the use of certain HTML tags.
 >
-> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](../configuration.md).
+> - ⭐️ This rule is included in Flat Config [`rdlabo.configs.recommended`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/configuration).
 
 This rule prevents specific elements from being used in Angular templates. It is commonly used to ban inline overlay components such as `<ion-modal>`, `<ion-popover>`, `<ion-toast>`, `<ion-alert>`, `<ion-loading>`, `<ion-picker>`, and `<ion-action-sheet>`, which should be presented through launcher methods or dedicated services instead of being declared in the template.
 
@@ -70,12 +70,12 @@ Array of element tag names to disallow. The rule compares these names to the `El
 
 ## When to enable
 
-Enable this rule in projects that use the launcher pattern for overlays. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md) and [`@rdlabo/rules/prefer-disable-handler`](./prefer-disable-handler.md) to keep modal and overlay logic out of the template.
+Enable this rule in projects that use the launcher pattern for overlays. It pairs with [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher) and [`@rdlabo/rules/prefer-disable-handler`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-disable-handler) to keep modal and overlay logic out of the template.
 
 ## See also
 
-- [`@rdlabo/rules/prefer-modal-launcher`](./prefer-modal-launcher.md)
-- [`@rdlabo/rules/prefer-disable-handler`](./prefer-disable-handler.md)
+- [`@rdlabo/rules/prefer-modal-launcher`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-modal-launcher)
+- [`@rdlabo/rules/prefer-disable-handler`](https://docs.rdlabo.dev/projects/eslint-plugin-rules/docs/rules/prefer-disable-handler)
 
 ## Implementation
 
