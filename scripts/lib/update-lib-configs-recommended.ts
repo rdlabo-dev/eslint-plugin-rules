@@ -50,6 +50,7 @@ const recommended: Linter.Config[] = [
       '@rdlabo/rules/prefer-disable-handler': 'error',
       '@rdlabo/rules/require-ion-error-text': 'error',
       '@rdlabo/rules/require-ion-item-group': 'error',
+      '@rdlabo/rules/ionic-list-structure': 'error',
     },
   },
 ];

@@ -16,4 +16,5 @@ export const RECOMMENDED_RULE_NAMES = new Set([
   'prefer-disable-handler',
   'require-ion-error-text',
   'require-ion-item-group',
+  'ionic-list-structure',
 ]);

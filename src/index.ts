@@ -9,6 +9,7 @@ import denysoftprivatemodifier from './rules/deny-soft-private-modifier';
 import implementsioniclifecycle from './rules/implements-ionic-lifecycle';
 import initializetimezoneatmodulescope from './rules/initialize-timezone-at-module-scope';
 import ionicattrtypecheck from './rules/ionic-attr-type-check';
+import ionicliststructure from './rules/ionic-list-structure';
 import nocomponentmethodexceptlifecycle from './rules/no-component-method-except-lifecycle';
 import nocomponentwritablesignal from './rules/no-component-writable-signal';
 import noimplicittimezone from './rules/no-implicit-timezone';
@@ -37,6 +38,7 @@ export = {
     'implements-ionic-lifecycle': implementsioniclifecycle,
     'initialize-timezone-at-module-scope': initializetimezoneatmodulescope,
     'ionic-attr-type-check': ionicattrtypecheck,
+    'ionic-list-structure': ionicliststructure,
     'no-component-method-except-lifecycle': nocomponentmethodexceptlifecycle,
     'no-component-writable-signal': nocomponentwritablesignal,
     'no-implicit-timezone': noimplicittimezone,
