@@ -32,7 +32,11 @@ const rule: TSESLint.RuleModule<MessageIds, []> = {
         if (node.type === 'Element' && (node.name === 'ion-item' || node.name === 'ion-item-group') && currentList) {
           currentList.hasItems = true;
         }
-        visitTemplateChildren(node, (children) => visit(children, currentList));
+        const children: TemplateAstNode[] = [];
+        visitTemplateChildren(node, (nodes) => children.push(...(nodes ?? [])));
+        // Deferred auxiliary blocks can be written in any order.
+        children.sort((left, right) => (left.sourceSpan?.start.offset ?? 0) - (right.sourceSpan?.start.offset ?? 0));
+        visit(children, currentList);
       }
     }
     return {

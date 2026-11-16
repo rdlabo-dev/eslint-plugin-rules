@@ -20,6 +20,8 @@ ruleTester.run('ionic-list-structure', rule, {
     '@for (section of sections; track section.id) { <ion-list><ion-list-header>{{ section.title }}</ion-list-header><ion-item-group /></ion-list> }',
     '<ion-list><ion-item-group><ion-item><ion-list><ion-list-header>Nested</ion-list-header><ion-item-group /></ion-list></ion-item></ion-item-group></ion-list>',
     '<ion-list-header>Outside a list</ion-list-header>',
+    '<ion-list>@defer {} @loading { <ion-list-header>Loading</ion-list-header> } @placeholder { <ion-item>Waiting</ion-item> }</ion-list>',
+    '<ion-list>@defer {} @placeholder { <ion-list-header>Waiting</ion-list-header> } @loading { <ion-item>Loading</ion-item> }</ion-list>',
   ].map((code) => ({ code, filename: 'template.html' })),
   invalid: [
     ...[
@@ -36,6 +38,8 @@ ruleTester.run('ionic-list-structure', rule, {
       '<ion-list>@if (visible) { <ion-item-group /> }<ion-list-header>Late</ion-list-header></ion-list>',
       '<ion-list>@for (item of items; track item) { <ion-item /> }<ion-list-header>Late</ion-list-header></ion-list>',
       '<ion-list>@defer { <ion-item-group /> }<ion-list-header>Late</ion-list-header></ion-list>',
+      '<ion-list>@defer {} @loading { <ion-item>Loading</ion-item> } @placeholder { <ion-list-header>Waiting</ion-list-header> }</ion-list>',
+      '<ion-list>@defer {} @placeholder { <ion-item>Waiting</ion-item> } @loading { <ion-list-header>Loading</ion-list-header> }</ion-list>',
     ].map((code) => ({ code, filename: 'template.html', errors: [{ messageId: 'listHeaderAfterItems' as const }] })),
   ],
 });
